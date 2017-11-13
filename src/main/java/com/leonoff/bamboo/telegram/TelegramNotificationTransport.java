@@ -79,6 +79,8 @@ public class TelegramNotificationTransport implements NotificationTransport {
                     .append(" ")
                     .append(deploymentResult.getTriggerReason().getNameForSentence())
                     .append(")");
+            }
+        }
 
         if (!StringUtils.isEmpty(imContent) && resultsSummary != null) {
             if (resultsSummary.isSuccessful()) {
