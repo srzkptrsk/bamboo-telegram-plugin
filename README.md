@@ -8,7 +8,7 @@ Installation
 * Setup [Atlassian SDK](https://developer.atlassian.com/docs/getting-started/set-up-the-atlassian-plugin-sdk-and-build-a-project)
 * Build plugin
 ```
-$ git clone git@github.com:leonoff/bamboo-telegram-plugin.git
+$ git clone git@github.com:srzkptrsk/bamboo-telegram-plugin.git
 $ cd bamboo-telegram-plugin
 $ atlas-package
 ```
@@ -42,16 +42,16 @@ $ curl -s "https://api.telegram.org/botBOT_TOKEN/getUpdates" | json_pp
                }
             ],
             "from" : {
-               "first_name" : "Mikhail",
-               "last_name" : "Leonov",
+               "first_name" : "First Name",
+               "last_name" : "Last Name",
                "id" : 1000101000
             },
             "date" : 1476823322,
             "chat" : {
                "type" : "private",
-               "first_name" : "Mikhail",
+               "first_name" : "Fisrt Name",
                "id" : 163021324,
-               "last_name" : "Leonov"
+               "last_name" : "Last Name"
             },
             "message_id" : 10,
             "text" : "/start"
