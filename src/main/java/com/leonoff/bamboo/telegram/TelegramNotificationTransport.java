@@ -53,6 +53,32 @@ public class TelegramNotificationTransport implements NotificationTransport {
 
         final StringBuilder message = new StringBuilder();
         String imContent = notification.getIMContent();
+        
+        if (deploymentResult != null) {
+            if (deploymentResult.getDeploymentState() == BuildState.FAILED) {
+                message.append("\uD83D\uDD34 ");
+                message.append(deploymentResult.getEnvironment().getName())
+                    .append(" (")
+                    .append(deploymentResult.getDeploymentVersionName())
+                    .append(")")
+                    .append("\n")
+                    .append(deploymentResult.getEnvironment().getDescription());
+            } else if (deploymentResult.getDeploymentState() == BuildState.SUCCESS) {
+                message.append("\u2705 ");
+                message.append(deploymentResult.getEnvironment().getName())
+                    .append(" (")
+                    .append(deploymentResult.getDeploymentVersionName())
+                    .append(")")
+                    .append("\n")
+                    .append(deploymentResult.getEnvironment().getDescription());
+            } else if (LifeCycleState.isActive(deploymentResult.getLifeCycleState())) {            
+                message.append("\uD83D\uDE80 ");
+                message.append(deploymentResult.getEnvironment().getName())
+                    .append(" (")
+                    .append(deploymentResult.getDeploymentVersionName())
+                    .append(" ")
+                    .append(deploymentResult.getTriggerReason().getNameForSentence())
+                    .append(")");
 
         if (!StringUtils.isEmpty(imContent) && resultsSummary != null) {
             if (resultsSummary.isSuccessful()) {
