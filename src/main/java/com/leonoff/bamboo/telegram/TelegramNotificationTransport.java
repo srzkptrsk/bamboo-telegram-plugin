@@ -1,5 +1,7 @@
 package com.leonoff.bamboo.telegram;
 
+import com.atlassian.bamboo.builder.BuildState;
+import com.atlassian.bamboo.builder.LifeCycleState;
 import com.atlassian.bamboo.author.Author;
 import com.atlassian.bamboo.deployments.results.DeploymentResult;
 import com.atlassian.bamboo.jira.jiraissues.LinkedJiraIssue;
